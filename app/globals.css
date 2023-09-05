@@ -2,26 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .auth_button {
+    @apply border border-transparent rounded-md shadow-md h-8 w-20 flex items-center justify-center  transition-colors duration-300;
+  }
+  .mobile-links {
+    @apply h-10 text-3xl items-center justify-center flex text-custom-brown-3 z-50 hover:bg-custom-brown-3 hover:text-custom-navy transition-colors duration-300;
+  }
+  .mobile-container {
+    @apply absolute top-full bg-custom-navy w-full left-0 p-4 pt-0 z-50;
+  }
+  .desktop-links {
+    @apply flex text-custom-brown-1 md:text-base lg:text-xl xl:text-3xl hover:text-custom-brown-3 transition-colors duration-300;
+  }
+  .desktop-container {
+    @apply flex gap-8 items-center justify-center text-xl;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .login_button {
+    @apply border border-transparent rounded-md shadow-2xl h-10 w-28  transition-transform duration-200  bg-custom-brown-3  text-custom-navy hover:scale-110;
   }
 }
+.error {
+  color: #bf1650;
+}
 
+.error::before {
+  display: inline;
+  content: '⚠ ';
+}
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-custom-brown-1;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
